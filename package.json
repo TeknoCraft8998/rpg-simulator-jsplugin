@@ -1,0 +1,11 @@
+{
+  "name": "rpg-simulator",
+  "version": "1.0.3",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Xevaltan",
+  "license": "ISC",
+  "description": "RPG-Simulator can help you in your rpg games\r This simulate movement, connection, deconnection and more\r Install this and discover all things who are in this javascript plugin"
+}
