@@ -35,7 +35,7 @@ class Player{
         if (this.connected === true) {
             this.connected = false;
 
-            return this.connected;
+            return {connected:this.connected,player:this};
         }
     }
     /**
@@ -50,7 +50,7 @@ class Player{
                 this.x = x;
                 this.y = y;
     
-                return {x:x,y:y,mapID:mapID,rpg:this};
+                return {x:x,y:y,mapID:mapID,player:this};
             }
         }
     }
@@ -70,8 +70,80 @@ class Player{
             } else if (type === "right") {
                 this.x += number;
             }
-            return {x:this.x,y:this.y,rpg:this};
+            return {x:this.x,y:this.y,player:this};
         }
+    }
+    /**
+     * 
+     * @param {Number} number 
+     */
+    async setHealth(number){
+        if(this.connected === true) this.health = number;
+        return {health:this.health,player:this};
+    }
+    /**
+     * 
+     * @param {Number} number 
+     */
+    async addHealth(number){
+        if(this.connected === true) this.health += number;
+        return {health:this.health,player:this};
+    }
+    /**
+     * 
+     * @param {Number} number 
+     */
+    async removeHealth(number){
+        if(this.connected === true) this.health -= number;
+        return {health:this.health,player:this};
+    }
+    /**
+     * 
+     * @param {Number} number 
+     */
+    async setAttack(number){
+        if(this.connected === true) this.attack = number;
+        return {attack:this.attack,player:this}
+    }
+    /**
+     * 
+     * @param {Number} number 
+     */
+    async addAttack(number){
+        if(this.connected === true) this.attack += number;
+        return {attack:this.attack,player:this}
+    }
+    /**
+     * 
+     * @param {Number} number 
+     */
+    async removeAttack(number){
+        if(this.connected === true) this.attack -= number;
+        return {attack:this.attack,player:this}
+    }
+    /**
+     * 
+     * @param {Number} number 
+     */
+    async setDefense(number){
+        if(this.connected === true) this.defense = number;
+        return {defense:this.defense,player:this}
+    }
+    /**
+     * 
+     * @param {Number} number 
+     */
+    async addDefense(number){
+        if(this.connected === true) this.defense += number;
+        return {defense:this.defense,player:this}
+    }
+    /**
+     * 
+     * @param {Number} number 
+     */
+    async removeDefense(number){
+        if(this.connected === true) this.defense -= number;
+        return {defense:this.defense,player:this}
     }
 }
 class Map{
@@ -90,7 +162,7 @@ class Map{
     async generate(maxX,maxY){
         this.maxX = maxX;
         this.maxY = maxY;
-        return {maxX:maxX,maxY:maxY,myMap:this}
+        return {maxX:maxX,maxY:maxY,map:this}
     }
     async getId(){
         return this.id;
